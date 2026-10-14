@@ -1,0 +1,5 @@
+{
+  "name": "热知 · 工程热力学", "appid": "", "description": "工程热力学学习平台中期演示",
+  "versionName": "1.0.0", "versionCode": "100", "transformPx": false,
+  "vueVersion": "3", "h5": { "title": "热知 · 工程热力学学习平台", "router": { "mode": "hash" } }
+}

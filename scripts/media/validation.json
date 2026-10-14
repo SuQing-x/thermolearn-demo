@@ -1,0 +1,50 @@
+[
+  {
+    "name": "first-law",
+    "file": "/static/media/first-law.mp4",
+    "poster": "/static/media/first-law-cover.png",
+    "size_bytes": 160469,
+    "duration_seconds": 16.0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "fps": 24.0,
+    "codec": "h264",
+    "pixel_format": "yuv420p(progressive)",
+    "full_decode": "passed",
+    "audio": false
+  },
+  {
+    "name": "isothermal",
+    "file": "/static/media/isothermal.mp4",
+    "poster": "/static/media/isothermal-cover.png",
+    "size_bytes": 228143,
+    "duration_seconds": 16.0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "fps": 24.0,
+    "codec": "h264",
+    "pixel_format": "yuv420p(progressive)",
+    "full_decode": "passed",
+    "audio": false
+  },
+  {
+    "name": "carnot",
+    "file": "/static/media/carnot.mp4",
+    "poster": "/static/media/carnot-cover.png",
+    "size_bytes": 252054,
+    "duration_seconds": 16.0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "fps": 24.0,
+    "codec": "h264",
+    "pixel_format": "yuv420p(progressive)",
+    "full_decode": "passed",
+    "audio": false
+  }
+]

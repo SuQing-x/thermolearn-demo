@@ -1,0 +1,36 @@
+# Dependencies and generated files
+node_modules/
+dist/
+vendor/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.local/
+.cache/
+
+# Local data and temporary files
+*.log
+*.tmp
+*.temp
+~$*
+.DS_Store
+Thumbs.db
+热知-学习记录*.json
+
+# Secrets and credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials*
+secrets*
+.aws/
+.ssh/
+
+# Original private materials
+docs/original/
+*.doc
+*.docx

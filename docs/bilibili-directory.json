@@ -1,0 +1,691 @@
+{
+  "course": "工程热力学（西安交通大学）",
+  "bvid": "BV1TE411P7Cm",
+  "checkedOn": "2026-10-13",
+  "pages": [
+    {
+      "page": 1,
+      "part": "[1.1.1]--热能及其利用",
+      "duration": 338,
+      "chapterId": "ch0",
+      "nodeIds": [
+        "energy-use"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 2,
+      "part": "[1.2.1]--工程热力学的研究内容",
+      "duration": 921,
+      "chapterId": "ch0",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 3,
+      "part": "[1.3.1]--工程热力学的研究方法",
+      "duration": 210,
+      "chapterId": "ch0",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 4,
+      "part": "[2.1.1]--热能动力装置",
+      "duration": 404,
+      "chapterId": "ch1",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 5,
+      "part": "[2.2.1]--热力系统",
+      "duration": 597,
+      "chapterId": "ch1",
+      "nodeIds": [
+        "system"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 6,
+      "part": "[2.3.1]--热力状态和基本状态参数",
+      "duration": 833,
+      "chapterId": "ch1",
+      "nodeIds": [
+        "state"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 7,
+      "part": "[2.4.1]--平衡状态、状态方程式和坐标图",
+      "duration": 475,
+      "chapterId": "ch1",
+      "nodeIds": [
+        "state"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 8,
+      "part": "[2.5.1]--热力过程",
+      "duration": 644,
+      "chapterId": "ch1",
+      "nodeIds": [
+        "process"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 9,
+      "part": "[2.6.1]--功和热量",
+      "duration": 390,
+      "chapterId": "ch1",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 10,
+      "part": "[2.7.1]--热力循环",
+      "duration": 295,
+      "chapterId": "ch1",
+      "nodeIds": [
+        "cycle"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 11,
+      "part": "[3.1.1]--热力学第一定律的实质",
+      "duration": 222,
+      "chapterId": "ch2",
+      "nodeIds": [
+        "first-law"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 12,
+      "part": "[3.2.1]--热力学能",
+      "duration": 287,
+      "chapterId": "ch2",
+      "nodeIds": [
+        "internal-energy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 13,
+      "part": "[3.3.1]--焓",
+      "duration": 657,
+      "chapterId": "ch2",
+      "nodeIds": [
+        "enthalpy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 14,
+      "part": "[3.4.1]--第一定律的基本能量方程式",
+      "duration": 334,
+      "chapterId": "ch2",
+      "nodeIds": [
+        "first-law"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 15,
+      "part": "[3.5.1]--稳定流动能量方程",
+      "duration": 1209,
+      "chapterId": "ch2",
+      "nodeIds": [
+        "steady-flow"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 16,
+      "part": "[3.6.1]--能量方程的应用",
+      "duration": 1113,
+      "chapterId": "ch2",
+      "nodeIds": [
+        "first-law",
+        "steady-flow"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 17,
+      "part": "[4.1.1]--理想气体的概念",
+      "duration": 446,
+      "chapterId": "ch3",
+      "nodeIds": [
+        "ideal-gas"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 18,
+      "part": "[4.2.1]--理想气体的比热容",
+      "duration": 560,
+      "chapterId": "ch3",
+      "nodeIds": [
+        "heat-capacity"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 19,
+      "part": "[4.3.1]--理想气体的热力学能、焓和熵",
+      "duration": 408,
+      "chapterId": "ch3",
+      "nodeIds": [
+        "ideal-gas",
+        "internal-energy",
+        "enthalpy",
+        "entropy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 20,
+      "part": "[4.4.1]--水的饱和状态和相图",
+      "duration": 520,
+      "chapterId": "ch3",
+      "nodeIds": [
+        "steam"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 21,
+      "part": "[4.5.1]--水的定压加热汽化过程",
+      "duration": 449,
+      "chapterId": "ch3",
+      "nodeIds": [
+        "steam"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 22,
+      "part": "[4.6.1]--水和水蒸气的热力学性质",
+      "duration": 630,
+      "chapterId": "ch3",
+      "nodeIds": [
+        "steam"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 23,
+      "part": "[5.1.1]--理想气体可逆多变过程",
+      "duration": 428,
+      "chapterId": "ch4",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 24,
+      "part": "[5.2.1]--定容过程、定压过程和定温过程",
+      "duration": 595,
+      "chapterId": "ch4",
+      "nodeIds": [
+        "isochoric",
+        "isobaric",
+        "isothermal"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 25,
+      "part": "[5.3.1]--绝热过程",
+      "duration": 380,
+      "chapterId": "ch4",
+      "nodeIds": [
+        "adiabatic"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 26,
+      "part": "[5.4.1]--理想气体热力过程综合分析",
+      "duration": 415,
+      "chapterId": "ch4",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 27,
+      "part": "[5.5.1]--水蒸气的基本过程",
+      "duration": 347,
+      "chapterId": "ch4",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 28,
+      "part": "[6.1.1]--卡诺循环和多热源可逆循环",
+      "duration": 1287,
+      "chapterId": "ch5",
+      "nodeIds": [
+        "carnot"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 29,
+      "part": "[6.2.1]--卡诺定理",
+      "duration": 798,
+      "chapterId": "ch5",
+      "nodeIds": [
+        "carnot"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 30,
+      "part": "[6.3.1]--熵、热力学第二定律数学表达式",
+      "duration": 1353,
+      "chapterId": "ch5",
+      "nodeIds": [
+        "entropy",
+        "second-law"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 31,
+      "part": "[6.4.1]--熵方程",
+      "duration": 677,
+      "chapterId": "ch5",
+      "nodeIds": [
+        "entropy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 32,
+      "part": "[6.5.1]--孤立系统熵增原理",
+      "duration": 598,
+      "chapterId": "ch5",
+      "nodeIds": [
+        "entropy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 33,
+      "part": "[6.6.1]--能量贬值原理",
+      "duration": 881,
+      "chapterId": "ch5",
+      "nodeIds": [
+        "exergy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 34,
+      "part": "[7.1.1]--实际气体性质主要内容和研究方法",
+      "duration": 604,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "real-gas"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 35,
+      "part": "[7.2.1]--理想气体状态方程用于实际气体的偏差",
+      "duration": 430,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "real-gas"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 36,
+      "part": "[7.3.1]--实际气体状态方程：范德瓦尔斯方程",
+      "duration": 1125,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "real-gas"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 37,
+      "part": "[7.4.1]--实际气体状态方程：维里状态方程",
+      "duration": 531,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "real-gas"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 38,
+      "part": "[7.5.1]--对应态原理与通用压缩因子图",
+      "duration": 1103,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "real-gas"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 39,
+      "part": "[7.6.1]--热力学一般关系式",
+      "duration": 1281,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "general-relations"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 40,
+      "part": "[7.7.1]--热力学能、焓和熵的一般关系式",
+      "duration": 763,
+      "chapterId": "ch6",
+      "nodeIds": [
+        "general-relations"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 41,
+      "part": "[8.1.1]--稳定流动的基本方程式",
+      "duration": 607,
+      "chapterId": "ch7",
+      "nodeIds": [
+        "steady-flow"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 42,
+      "part": "[8.2.1]--促使流速改变的条件",
+      "duration": 406,
+      "chapterId": "ch7",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 43,
+      "part": "[8.3.1]--喷管的计算（上）",
+      "duration": 633,
+      "chapterId": "ch7",
+      "nodeIds": [
+        "nozzle"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 44,
+      "part": "[8.4.1]--喷管的计算（下）",
+      "duration": 429,
+      "chapterId": "ch7",
+      "nodeIds": [
+        "nozzle"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 45,
+      "part": "[8.5.1]--有摩阻的绝热流动",
+      "duration": 374,
+      "chapterId": "ch7",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 46,
+      "part": "[8.6.1]--绝热节流",
+      "duration": 273,
+      "chapterId": "ch7",
+      "nodeIds": [
+        "throttling"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 47,
+      "part": "[9.1.1]--单级活塞式压气机的工作原理和理论耗功量",
+      "duration": 644,
+      "chapterId": "ch8",
+      "nodeIds": [
+        "compressor"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 48,
+      "part": "[9.2.1]--余隙容积的影响",
+      "duration": 519,
+      "chapterId": "ch8",
+      "nodeIds": [
+        "compressor"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 49,
+      "part": "[9.3.1]--多级压缩和级间冷却",
+      "duration": 485,
+      "chapterId": "ch8",
+      "nodeIds": [
+        "compressor"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 50,
+      "part": "[9.4.1]--叶轮式压气机工作原理",
+      "duration": 325,
+      "chapterId": "ch8",
+      "nodeIds": [
+        "compressor"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 51,
+      "part": "[10.1.1]--分析动力循环的一般方法",
+      "duration": 485,
+      "chapterId": "ch9",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 52,
+      "part": "[10.2.1]--活塞式内燃机实际循环的简化",
+      "duration": 991,
+      "chapterId": "ch9",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 53,
+      "part": "[10.3.1]--活塞式内燃机的理想循环",
+      "duration": 671,
+      "chapterId": "ch9",
+      "nodeIds": [
+        "otto"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 54,
+      "part": "[10.4.1]--活塞式内燃机三种理想循环的比较",
+      "duration": 295,
+      "chapterId": "ch9",
+      "nodeIds": [
+        "otto"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 55,
+      "part": "[10.5.1]--燃气轮机装置循环",
+      "duration": 861,
+      "chapterId": "ch9",
+      "nodeIds": [
+        "brayton"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 56,
+      "part": "[10.6.1]--提高燃气轮机装置循环热效率的措施",
+      "duration": 820,
+      "chapterId": "ch9",
+      "nodeIds": [
+        "brayton"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 57,
+      "part": "[11.1.1]--简单蒸汽动力装置循环——概述",
+      "duration": 265,
+      "chapterId": "ch10",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 58,
+      "part": "[11.2.1]--简单蒸汽动力装置循环——朗肯循环",
+      "duration": 962,
+      "chapterId": "ch10",
+      "nodeIds": [
+        "rankine"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 59,
+      "part": "[11.3.1]--再热循环",
+      "duration": 337,
+      "chapterId": "ch10",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 60,
+      "part": "[11.4.1]--回热循环",
+      "duration": 526,
+      "chapterId": "ch10",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 61,
+      "part": "[12.1.1]--概述",
+      "duration": 302,
+      "chapterId": "ch11",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 62,
+      "part": "[12.2.1]--压缩空气制冷循环",
+      "duration": 642,
+      "chapterId": "ch11",
+      "nodeIds": [],
+      "status": "confirmed"
+    },
+    {
+      "page": 63,
+      "part": "[12.3.1]--压缩蒸汽制冷循环",
+      "duration": 479,
+      "chapterId": "ch11",
+      "nodeIds": [],
+      "status": "confirmed",
+      "mappingBasis": "用户确认归入制冷循环，仅章节关联"
+    },
+    {
+      "page": 64,
+      "part": "[12.4.1]--制冷剂的性质",
+      "duration": 538,
+      "chapterId": "ch11",
+      "nodeIds": [],
+      "status": "confirmed",
+      "mappingBasis": "用户确认归入制冷循环，仅章节关联"
+    },
+    {
+      "page": 65,
+      "part": "[12.5.1]--逆卡诺热机及膨胀机替代节流阀的分析",
+      "duration": 332,
+      "chapterId": "ch11",
+      "nodeIds": [
+        "heat-pump",
+        "carnot"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 66,
+      "part": "[13.1.1]--理想气体混合物",
+      "duration": 833,
+      "chapterId": "ch12",
+      "nodeIds": [
+        "mixture"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 67,
+      "part": "[13.2.1]--理想气体混合物的比热容、热力学能、焓和熵",
+      "duration": 769,
+      "chapterId": "ch12",
+      "nodeIds": [
+        "mixture"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 68,
+      "part": "[13.3.1]--湿空气简介",
+      "duration": 640,
+      "chapterId": "ch12",
+      "nodeIds": [
+        "humid-air"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 69,
+      "part": "[13.4.1]--湿空气的状态参数和湿球温度",
+      "duration": 822,
+      "chapterId": "ch12",
+      "nodeIds": [
+        "humid-air"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 70,
+      "part": "[13.5.1]--湿空气的焓-湿图",
+      "duration": 706,
+      "chapterId": "ch12",
+      "nodeIds": [
+        "humid-air"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "page": 71,
+      "part": "[13.6.1]--湿空气过程及其应用",
+      "duration": 1011,
+      "chapterId": "ch12",
+      "nodeIds": [
+        "humid-air"
+      ],
+      "status": "confirmed"
+    }
+  ]
+}
