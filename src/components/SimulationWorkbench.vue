@@ -13,7 +13,9 @@ const error = ref('')
 const controlKey = ref(0)
 let computeTimer: ReturnType<typeof setTimeout> | undefined
 
-const primaryChart = computed(() => result.value?.charts[0])
+const chartTabs = computed(() => result.value?.charts ?? [])
+const activeChartId = ref('')
+const primaryChart = computed(() => chartTabs.value.find((chart) => chart.id === activeChartId.value) || chartTabs.value[0])
 const stateColumns = computed(() => result.value?.states[0]?.values ?? [])
 
 interface SliderChangeEvent {
@@ -153,7 +155,17 @@ onBeforeUnmount(() => {
 
         <section v-if="primaryChart" class="panel chart-panel">
           <div class="section-title">
-            <h2>{{ primaryChart.title }}</h2>
+            <div v-if="chartTabs.length > 1" class="tabs chart-tabs" role="tablist" aria-label="选择图表">
+              <button
+                v-for="chart in chartTabs"
+                :key="chart.id"
+                :class="{ active: primaryChart.id === chart.id }"
+                role="tab"
+                :aria-selected="primaryChart.id === chart.id"
+                @click="activeChartId = chart.id"
+              >{{ chart.title }}</button>
+            </div>
+            <h2 v-else>{{ primaryChart.title }}</h2>
             <span class="title-note">{{ model.shortName || model.name }} · 自动计算</span>
           </div>
           <SimulationChart :chart="primaryChart" />
@@ -188,7 +200,7 @@ onBeforeUnmount(() => {
     <aside class="sim-side">
       <section class="panel side-panel">
         <span class="eyebrow">MODEL NOTES</span>
-        <h2>{{ model.name }}</h2>
+        <h2>实验说明</h2>
         <p class="muted">{{ model.description }}</p>
         <ul v-if="result?.notes?.length" class="sim-notes">
           <li v-for="note in result.notes" :key="note">{{ note }}</li>
@@ -225,6 +237,7 @@ onBeforeUnmount(() => {
 .metric-card small{font-size:10px;font-weight:400;color:#9aa79c;margin-left:3px}
 .chart-panel{padding:20px 18px 12px}
 .chart-caption{font-size:10px;color:#8b9a8e;text-align:center;margin-top:4px}
+.chart-tabs{flex-wrap:wrap;background:#f1f5f1}
 .state-panel{padding:20px 18px}
 .state-table-wrap{overflow-x:auto}
 .state-table{width:100%;border-collapse:collapse;font-size:11px}

@@ -1,11 +1,14 @@
 import type { SimulationModel } from './types'
+import { carnotCycleModel } from './models/carnotCycle'
 import { idealGasProcessModels } from './models/idealGasProcesses'
 
 /**
  * 仿真模型注册表。
  * 组员新增模型时：在 models/ 下新建文件，并在这里 import、加入数组。
+ * 注册后，仿真首页会自动多一张实验卡片，并生成对应的独立详情页。
  */
 export const simulationModels: SimulationModel[] = [
+  carnotCycleModel,
   ...idealGasProcessModels,
 ]
 

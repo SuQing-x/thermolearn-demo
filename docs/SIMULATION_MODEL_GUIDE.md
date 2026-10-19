@@ -9,11 +9,15 @@ src/simulations/
 ├─ types.ts                     模型契约（先读）
 ├─ registry.ts                  模型注册表
 └─ models/
-   └─ idealGasProcesses.ts      现有示例：理想气体四种基本过程
+   ├─ carnotCycle.ts            卡诺循环（p–V 与 T–s 两张图）
+   └─ idealGasProcesses.ts      理想气体四种基本过程
 src/components/
-├─ SimulationWorkbench.vue      通用参数/结果渲染
+├─ SimulationCard.vue           实验卡片（仿真首页）
+├─ SimulationWorkbench.vue      通用参数/结果渲染（详情页）
 └─ SimulationChart.vue          ECharts 图表包装
-src/pages/simulation/index.vue  仿真页面
+src/pages/simulation/
+├─ index.vue                    实验卡片列表
+└─ detail.vue                   独立实验详情页
 ```
 
 ## 2. 接入步骤
@@ -21,9 +25,14 @@ src/pages/simulation/index.vue  仿真页面
 1. 在 `src/simulations/models/` 下新建一个 `.ts` 文件，导出一个 `SimulationModel` 对象。
 2. 打开 `src/simulations/registry.ts`，import 新模型并加入 `simulationModels` 数组。
 3. 运行 `npm run typecheck`，确认类型通过。
-4. 启动 `npm run dev`，打开 `http://127.0.0.1:5173/#/pages/simulation/index?model=<你的模型 id>` 查看效果。
+4. 启动 `npm run dev`，打开 `http://127.0.0.1:5173/#/pages/simulation/index` 查看新卡片；点击卡片进入详情页，或直接打开 `http://127.0.0.1:5173/#/pages/simulation/detail?model=<你的模型 id>`。
 
-不需要改动 `src/pages/simulation/index.vue`、`SimulationWorkbench.vue` 或 `SimulationChart.vue`。
+注册后会自动发生两件事：
+
+- 仿真首页多一张实验卡片，卡片预览会用**默认参数**调用一次 `compute` 并绘制第一张图；
+- 点击卡片进入 `pages/simulation/detail`，由 `SimulationWorkbench.vue` 自动生成参数控件、图表、指标卡与状态表。
+
+不需要改动 `src/pages/simulation/index.vue`、`detail.vue`、`SimulationCard.vue`、`SimulationWorkbench.vue` 或 `SimulationChart.vue`。
 
 ## 3. 模型契约
 
@@ -33,8 +42,11 @@ src/pages/simulation/index.vue  仿真页面
 | --- | --- | --- |
 | `id` | `string` | 全局唯一，建议 kebab-case，例如 `carnot-cycle` |
 | `name` | `string` | 完整名称，显示在说明面板 |
-| `shortName` | `string?` | 模型切换按钮上的短名称 |
+| `shortName` | `string?` | 卡片和详情页标签上的短名称 |
 | `description` | `string` | 一两句话说明模型用途和适用条件 |
+| `category` | `string?` | 卡片上的分类标签，例如「经典循环」「基础过程」 |
+| `icon` | `string?` | `Icon.vue` 中的图标名，默认 `flask` |
+| `accent` | `string?` | 卡片图标的强调色，十六进制，例如 `#c6904f` |
 | `formula` | `string?` | LaTeX 公式，交给 `Formula.vue` 渲染；用 `String.raw` 包裹 |
 | `formulaNote` | `string?` | 公式适用条件 |
 | `chapterIds` | `string[]?` | 可选，关联 `src/data/course.ts` 中已有的章节 id |
@@ -57,7 +69,7 @@ src/pages/simulation/index.vue  仿真页面
 
 | 字段 | 说明 |
 | --- | --- |
-| `charts` | 图表数组；当前页面渲染第一张，后续可扩展多图切换 |
+| `charts` | 图表数组；返回多张时，详情页会自动显示图表切换标签（卡诺循环提供 p–V 与 T–s 两张） |
 | `charts[].xLabel` / `yLabel` | 坐标轴名称，**必须带单位**，例如 `V / L`、`p / kPa` |
 | `charts[].series[].points` | `[x, y]` 数值点数组 |
 | `charts[].markPoints` | 可选，标注状态点，例如状态 1/2 |
@@ -91,6 +103,8 @@ export const springDemo: SimulationModel = {
   name: '示例：线性关系',
   shortName: '示例',
   description: '用于验证接入流程的最小模型，不参与课程计算。',
+  category: '示例',
+  icon: 'flask',
   formula: String.raw`y = kx`,
   formulaNote: '仅用于演示接入流程。',
   chapterIds: ['ch4'],
@@ -141,7 +155,9 @@ export const simulationModels: SimulationModel[] = [
 提交前逐项确认：
 
 - [ ] `id` 全局唯一，且未复用已有 id。
-- [ ] 所有参数默认值在 `min`/`max` 范围内。
+- [ ] 所有参数默认值在 `min`/`max` 范围内，且默认参数下 `compute` 能成功返回结果（首页卡片预览会调用一次）。
+- [ ] `compute` 保持轻量，不在其中做重计算或异步请求；首页需要为每张卡片计算一次预览。
+- [ ] 多图模型的 `charts` 中每张图都有唯一的 `id`、标题和坐标轴单位。
 - [ ] `compute` 是纯函数：不访问 DOM、不发网络请求、不读当前时间、不使用随机数。
 - [ ] 非法输入（0、负数、非数字）会抛出带中文说明的 `Error`，不会返回 NaN。
 - [ ] 输出点均为有限数字，没有 `NaN` / `Infinity`。
@@ -152,7 +168,9 @@ export const simulationModels: SimulationModel[] = [
 
 ## 7. 现有示例模型
 
-`src/simulations/models/idealGasProcesses.ts` 包含四个可直接参考的模型：
+`src/simulations/models/carnotCycle.ts` 是一个完整的经典循环示例，提供 p–V 与 T–s 两张图和四个状态点，适合参考多图、多状态点的写法。
+
+`src/simulations/models/idealGasProcesses.ts` 包含四个基础过程模型：
 
 | id | 名称 | 主要曲线 |
 | --- | --- | --- |

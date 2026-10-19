@@ -59,6 +59,12 @@ export interface SimulationModel {
   name: string
   shortName?: string
   description: string
+  /** 实验分类，例如「经典循环」「基础过程」 */
+  category?: string
+  /** Icon.vue 中的图标名；默认 flask */
+  icon?: string
+  /** 实验卡片的强调色（十六进制），用于图标底色 */
+  accent?: string
   /** LaTeX 公式，交给 Formula.vue 渲染 */
   formula?: string
   formulaNote?: string

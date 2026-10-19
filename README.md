@@ -65,7 +65,7 @@ npm run dev
 
 - 六个页面（学习首页、知识图谱、仿真实验、视频与课件、习题练习、个人中心）及相互跳转已经连通，图谱搜索与筛选、资源学习、单选题判分、答案解析、错题、收藏、学习记录形成完整闭环。
 - 习题练习页支持「全部题目 / 未作答 / 错题重做」三组切换、按章节与题干关键词筛选、即时判分与正确答案、逐题解析，并可从知识图谱或资源页带知识点直接进入；重做正确后该题会自动移出错题本。
-- 仿真实验页内置 4 个理想气体基本过程示例模型（定温、定压、定容、绝热），支持参数调节、p–V 曲线、状态点与过程量计算。模型通过统一契约注册，组员可按 [仿真模型接入指南](docs/SIMULATION_MODEL_GUIDE.md) 添加新模型，无需修改页面代码。
+- 仿真实验页以实验卡片列表展示模块：当前内置卡诺循环和 4 个理想气体基本过程（定温、定压、定容、绝热）。点击卡片进入该实验的独立详情页，支持参数调节、p–V/T–s 图表、状态点与过程量计算。模型通过统一契约注册，组员按 [仿真模型接入指南](docs/SIMULATION_MODEL_GUIDE.md) 新增模型后，会自动多一张实验卡片和对应详情页，无需修改页面代码。
 - 个人中心汇总知识点与资源学习进度、练习次数、正确率、章节进度、错题记录、练习记录、收藏与最近浏览，支持导出学习记录；清空记录需要二次确认，且仅作用于当前浏览器。
 - 课程目录按 `docs/COURSE_OUTLINE.md` 组织，共 **13 章（第 0–12 章）**。
 - 图谱包含 **32 个按大纲精选的演示知识点**。这些节点不是尚未提供的原始 32 点清单，也不代表课程的全部知识内容。
@@ -115,9 +115,9 @@ npm run dev
 
 ## 仿真模型接入
 
-仿真模型位于 `src/simulations/`。新增模型只需实现 `src/simulations/types.ts` 中的 `SimulationModel`，并在 `src/simulations/registry.ts` 注册；仿真页面会自动生成参数控件、p–V 图表、指标卡与状态表，不需要修改页面代码。
+仿真模型位于 `src/simulations/`。新增模型只需实现 `src/simulations/types.ts` 中的 `SimulationModel`，并在 `src/simulations/registry.ts` 注册；仿真首页会自动生成实验卡片，点击卡片进入 `pages/simulation/detail?model=<id>` 的独立详情页，页面自动生成参数控件、图表、指标卡与状态表，不需要修改页面代码。
 
-现有示例模型在 `src/simulations/models/idealGasProcesses.ts`，包含定温、定压、定容、绝热四个过程。详细契约、参数/输出字段、单位约定、最小示例和校验清单见 [仿真模型接入指南](docs/SIMULATION_MODEL_GUIDE.md)。
+现有示例模型包括 `src/simulations/models/carnotCycle.ts`（卡诺循环，p–V 与 T–s 两张图）和 `src/simulations/models/idealGasProcesses.ts`（定温、定压、定容、绝热四个过程）。详细契约、参数/输出字段、单位约定、最小示例和校验清单见 [仿真模型接入指南](docs/SIMULATION_MODEL_GUIDE.md)。
 
 模型必须是可在浏览器运行的纯函数：不访问 DOM、不发起网络请求、不依赖时间或随机数；输入不合法时抛出带中文说明的 `Error`。纯前端演示不包含后端，Python/MATLAB 模型需先导出为 JS/WASM 或独立 HTML。
 
@@ -152,9 +152,9 @@ thermolearn-demo/
 ├─ AGENTS.md                 AI 协作规则
 ├─ CLAUDE.md                 Claude 自动加载入口（导入 AGENTS.md）
 ├─ CONTRIBUTING.md           队友开发与提交指南
-├─ src/pages/                 六个页面
+├─ src/pages/                 六个一级页面（仿真含实验列表与独立详情页）
 ├─ src/simulations/           仿真模型契约、注册表与示例模型
-├─ src/components/            图谱、仿真图表、公式、资源卡片等公共组件
+├─ src/components/            图谱、仿真卡片/图表、公式、资源卡片等公共组件
 ├─ src/data/course.ts         章节、知识点、关系、资源、题目
 ├─ src/store.ts               本地学习记录及页面跳转
 ├─ src/static/media/          视频与封面

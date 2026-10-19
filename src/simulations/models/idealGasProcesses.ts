@@ -343,6 +343,8 @@ export const idealGasProcessModels: SimulationModel[] = (
     name: meta.name,
     shortName: meta.shortName,
     description: meta.description,
+    category: '基础过程',
+    icon: 'flask',
     formula: meta.formula,
     formulaNote: meta.formulaNote,
     chapterIds: ['ch4'],
