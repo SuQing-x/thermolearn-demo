@@ -22,7 +22,7 @@ if (syntaxErrors.length) {
 }
 
 // course.ts 是当前项目的静态数据模块。仅转译至内存，不生成或修改源码文件。
-const { chapters, nodes, relations, resources, questions } = await import(
+const { chapters, nodes, relations, resources, questions, learningPath } = await import(
   `data:text/javascript;base64,${Buffer.from(output.outputText).toString('base64')}`
 )
 const errors = []
@@ -59,6 +59,56 @@ for (const relation of relations) {
   expect(nodeIds.has(relation.target), `关系终点不存在：${relation.target}`)
   expect(relation.source !== relation.target, `关系存在自引用：${relation.source}`)
   expect(['前置', '包含', '应用'].includes(relation.type), `关系 ${relation.source} → ${relation.target} 的类型无效`)
+}
+
+// 章节学习路径用于零基础学习顺序；这里保证覆盖完整、章节成组且不违反前置关系。
+expect(Array.isArray(learningPath), '学习路径 learningPath 必须是数组')
+if (Array.isArray(learningPath)) {
+  expect(learningPath.length === nodes.length, `学习路径应包含 ${nodes.length} 个知识点，实际 ${learningPath.length} 个`)
+  const pathIds = new Set(learningPath)
+  expect(pathIds.size === learningPath.length, '学习路径存在重复知识点')
+  for (const id of learningPath) expect(nodeIds.has(id), `学习路径包含不存在的知识点 ${id}`)
+  for (const id of nodeIds) expect(pathIds.has(id), `学习路径缺少知识点 ${id}`)
+
+  const nodeById = new Map(nodes.map(node => [node.id, node]))
+  const chapterSequence = []
+  for (const id of learningPath) {
+    const node = nodeById.get(id)
+    if (!node) continue
+    if (chapterSequence[chapterSequence.length - 1] !== node.chapterId) chapterSequence.push(node.chapterId)
+  }
+  expect(
+    JSON.stringify(chapterSequence) === JSON.stringify(chapters.map(chapter => chapter.id)),
+    '学习路径的章节分组必须连续且按 ch0–ch12 顺序排列',
+  )
+
+  const position = new Map(learningPath.map((id, index) => [id, index]))
+  const prerequisiteRelations = relations.filter(relation => relation.type === '前置')
+  for (const relation of prerequisiteRelations) {
+    const sourcePosition = position.get(relation.source)
+    const targetPosition = position.get(relation.target)
+    if (sourcePosition !== undefined && targetPosition !== undefined) {
+      expect(sourcePosition < targetPosition, `前置关系 ${relation.source} → ${relation.target} 的顺序与 learningPath 冲突`)
+    }
+  }
+
+  const indegree = new Map(nodes.map(node => [node.id, 0]))
+  const children = new Map(nodes.map(node => [node.id, []]))
+  for (const relation of prerequisiteRelations) {
+    children.get(relation.source)?.push(relation.target)
+    indegree.set(relation.target, (indegree.get(relation.target) ?? 0) + 1)
+  }
+  const queue = nodes.filter(node => indegree.get(node.id) === 0).map(node => node.id)
+  let visited = 0
+  while (queue.length) {
+    const id = queue.shift()
+    visited += 1
+    for (const child of children.get(id) ?? []) {
+      indegree.set(child, (indegree.get(child) ?? 0) - 1)
+      if (indegree.get(child) === 0) queue.push(child)
+    }
+  }
+  expect(visited === nodes.length, '前置关系存在环，无法生成先修层级')
 }
 
 function checkReferences(item, label) {

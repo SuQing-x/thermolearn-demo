@@ -2,6 +2,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as echarts from 'echarts'
 import type { ECharts, EChartsOption, GraphSeriesOption } from 'echarts'
+import KnowledgeNodeList from './KnowledgeNodeList.vue'
 
 interface KnowledgeNode {
   id: string
@@ -328,15 +329,14 @@ onBeforeUnmount(() => {
       <div class="status-legend"><span><i class="core-symbol"></i>核心知识点</span><span><i class="completed-symbol"></i>已学习</span></div>
     </div>
 
-    <details class="accessible-list">
-      <summary>以列表浏览知识点 <span>{{ accessibleNodes.length }}</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
-      <div class="node-list" role="group" aria-label="可选择的知识点">
-        <button v-for="node in accessibleNodes" :key="node.id" type="button" :class="{ active: selectedId === node.id, related: selectedNeighbours.has(node.id) }" :aria-pressed="selectedId === node.id" @click="chooseNode(node.id)">
-          <i :style="{ backgroundColor: getColor(node) }"></i>{{ node.title }}<span v-if="completed.has(node.id)" class="node-completed">已学</span><span v-else-if="node.core" class="node-core">核心</span>
-        </button>
-        <p v-if="!accessibleNodes.length">当前没有匹配的知识点。</p>
-      </div>
-    </details>
+    <KnowledgeNodeList
+      :nodes="accessibleNodes"
+      :chapters="chapters"
+      :selected-id="selectedId"
+      :completed-ids="completedIds"
+      :related-ids="selectedNeighbours"
+      @select="chooseNode"
+    />
   </section>
 </template>
 
@@ -372,20 +372,7 @@ onBeforeUnmount(() => {
 .status-legend { gap: 13px; }
 .core-symbol { width: 9px; height: 9px; border-radius: 50%; background: #9ab6a8; }
 .completed-symbol { width: 8px; height: 8px; border: 2px solid #387f68; border-radius: 50%; box-sizing: border-box; }
-.accessible-list { border-top: 1px solid #edf1ee; }
-.accessible-list summary { display: flex; align-items: center; gap: 7px; padding: 10px 20px; color: #8c9c93; font-size: 10px; cursor: pointer; list-style: none; }
-.accessible-list summary::-webkit-details-marker { display: none; }
-.accessible-list summary > span { padding: 1px 5px; border-radius: 4px; background: #f1f5f1; color: #7b9186; font-size: 9px; }
-.accessible-list summary > svg { margin-left: auto; width: 13px; height: 13px; stroke: currentColor; stroke-width: 1.2; }
-.accessible-list[open] summary > svg { transform: rotate(180deg); }
-.node-list { display: flex; flex-wrap: wrap; gap: 7px; padding: 3px 18px 16px; }
-.node-list button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 9px; font: inherit; font-size: 11px; color: #62796e; border: 1px solid #e1eae3; border-radius: 7px; background: #fff; cursor: pointer; }
-.node-list button:hover, .node-list button.active { color: #116d5b; border-color: #abd0bf; background: #eff8f2; }
-.node-list button i { width: 5px; height: 5px; border-radius: 50%; }
-.node-core, .node-completed { font-size: 9px; color: #7f9c8b; }
-.node-completed { color: #188367; }
-.node-list p { font-size: 12px; color: #8b9c93; }
-.knowledge-map button:focus-visible, .accessible-list summary:focus-visible { outline: 3px solid #acd8ca; outline-offset: 3px; }
+.knowledge-map button:focus-visible { outline: 3px solid #acd8ca; outline-offset: 3px; }
 @media (max-width: 700px) {
   .map-stage { height: 470px; }
   .map-topline { top: 17px; left: 16px; right: 16px; gap: 8px; }

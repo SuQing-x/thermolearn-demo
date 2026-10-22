@@ -35,6 +35,23 @@ export const chapters: Chapter[] = [
   { id: 'ch12', number: '12', title: '理想气体混合物及湿空气', shortTitle: '湿空气', color: '#71a283', description: '认识混合气体、湿空气与空气调节过程。' },
 ]
 
+/** 章节学习路径：按 ch0→ch12 与章内建议顺序排列的 32 个知识点 id。 */
+export const learningPath: string[] = [
+  'energy-use',
+  'system', 'state', 'process', 'cycle',
+  'internal-energy', 'first-law', 'enthalpy', 'steady-flow',
+  'ideal-gas', 'heat-capacity', 'steam',
+  'isothermal', 'isochoric', 'isobaric', 'adiabatic',
+  'second-law', 'carnot', 'entropy', 'exergy',
+  'real-gas', 'general-relations',
+  'nozzle', 'throttling',
+  'compressor',
+  'otto', 'brayton',
+  'rankine',
+  'refrigeration', 'heat-pump',
+  'mixture', 'humid-air',
+]
+
 export const nodes: KnowledgeNode[] = [
   { id: 'energy-use', title: '热能及其利用', chapterId: 'ch0', summary: '工程热力学研究热能与其他形式能量的转换规律，以及工质的热力性质。', core: true, level: '基础', x: 75, y: 80 },
   { id: 'system', title: '热力系统', chapterId: 'ch1', summary: '根据边界上的质量交换区分闭口系统与开口系统；孤立系统与外界既无质量交换，也无能量交换。', core: true, level: '基础', x: 225, y: 85 },
