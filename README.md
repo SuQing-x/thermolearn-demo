@@ -115,11 +115,51 @@ npm run dev
 
 ## 仿真模型接入
 
-仿真模型位于 `src/simulations/`。新增模型只需实现 `src/simulations/types.ts` 中的 `SimulationModel`，并在 `src/simulations/registry.ts` 注册；仿真首页会自动生成实验卡片，点击卡片进入 `pages/simulation/detail?model=<id>` 的独立详情页，页面自动生成参数控件、图表、指标卡与状态表，不需要修改页面代码。
+仿真模型位于 `src/simulations/`。组员提交模型时，需要满足以下要求；完整字段说明与最小示例见 [仿真模型接入指南](docs/SIMULATION_MODEL_GUIDE.md)。
 
-现有示例模型包括 `src/simulations/models/carnotCycle.ts`（卡诺循环，p–V 与 T–s 两张图）和 `src/simulations/models/idealGasProcesses.ts`（定温、定压、定容、绝热四个过程）。详细契约、参数/输出字段、单位约定、最小示例和校验清单见 [仿真模型接入指南](docs/SIMULATION_MODEL_GUIDE.md)。
+### 接入方式
 
-模型必须是可在浏览器运行的纯函数：不访问 DOM、不发起网络请求、不依赖时间或随机数；输入不合法时抛出带中文说明的 `Error`。纯前端演示不包含后端，Python/MATLAB 模型需先导出为 JS/WASM 或独立 HTML。
+1. 在 `src/simulations/models/` 新增一个 `.ts` 文件，实现 `src/simulations/types.ts` 中的 `SimulationModel`。
+2. 在 `src/simulations/registry.ts` 中 import，并加入 `simulationModels` 数组。
+3. 运行类型检查并在浏览器验证。注册后会自动生成实验卡片和独立详情页，**不需要修改页面代码**。
+
+### 必须满足的要求
+
+| 要求 | 说明 |
+| --- | --- |
+| 纯前端可运行 | 模型必须能在浏览器中运行（TS/JS/WASM）。本项目不引入后端；Python/MATLAB 模型需先导出为 JS/WASM 或独立 HTML。 |
+| 契约完整 | 实现 `SimulationModel` 必填字段：`id`、`name`、`description`、`parameters`、`compute`；可选 `shortName`、`category`、`icon`、`accent`、`formula`、`formulaNote`、`chapterIds`。 |
+| 唯一 id | `id` 不得与现有模型重复，建议使用 kebab-case，例如 `carnot-cycle`。 |
+| 纯函数 compute | 不访问 DOM、不发起网络请求、不读取当前时间或随机数；相同输入必须得到相同输出。 |
+| 默认值合法 | 每个参数的 `default` 必须在 `min`/`max` 范围内；默认参数下 `compute` 必须成功（仿真首页会用默认参数生成卡片预览）。 |
+| 输入校验 | 非法输入（0、负数、非数字、`T_C ≥ T_H` 等）抛出带中文说明的 `Error`，不能返回 `NaN`/`Infinity`。 |
+| 单位统一 | p 用 kPa（绝对压力）、V 用 L、T 用 K；能量内部用 J、展示建议用 kJ；熵变用 J/K。 |
+| 符号约定 | 与课程数据一致：`ΔU = Q − W`，`W` 为系统对外做功；放热量按正值展示时需在说明中注明。 |
+| 图表规范 | 每张图必须有唯一的 `id`、`title`、`xLabel`、`yLabel`（含单位）；单图建议 40–120 个采样点；返回多张图时详情页会自动显示切换标签。 |
+| 指标与状态 | `metrics` 给出关键结果与单位；`states` 给出状态点（没有状态点时返回空数组）；所有数值必须是有限数字。 |
+| 计算轻量 | 首页会为每张卡片计算一次预览，`compute` 不应做重计算或异步操作。 |
+| 内容准确 | 公式、适用条件、单位、正负号需课程同学或教师复核；`chapterIds` 只能引用 `src/data/course.ts` 中已有章节。 |
+| 安全 | 不写入密钥、服务器地址或个人敏感信息；不在模型内发起外部请求。 |
+| 不破坏现有结构 | 只新增模型文件并在注册表加一行；不修改现有页面、路由、配置或依赖。确需新增依赖时先与团队确认。 |
+
+### 提交前检查
+
+```powershell
+npm run typecheck
+node scripts/check-content.mjs   # 修改了课程数据时
+npm run build
+```
+
+浏览器中至少确认：
+
+- 仿真首页出现新卡片，默认参数下的预览图正常；
+- 点击卡片进入 `pages/simulation/detail?model=<id>`；
+- 调节参数后图表、指标卡、状态表同步更新；
+- 非法输入显示中文错误，恢复默认值可恢复；
+- 1440px 桌面宽度与手机宽度下无横向溢出；
+- 控制台无报错。
+
+现有示例模型包括 `src/simulations/models/carnotCycle.ts`（卡诺循环，p–V 与 T–s 两张图）和 `src/simulations/models/idealGasProcesses.ts`（定温、定压、定容、绝热四个过程），可作为实现参考。
 
 ## PDF 与网课维护
 
