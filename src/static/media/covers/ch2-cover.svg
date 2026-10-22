@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="热力学第一定律章节封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f35"/>
+      <stop offset="1" stop-color="#0b211b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#317cff" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#317cff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081a15" stop-opacity="0"/>
+      <stop offset="1" stop-color="#081a15" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#317cff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect width="1200" height="520" fill="url(#grid)"/>
+  <circle cx="900" cy="235" r="340" fill="url(#glow)"/>
+  <text x="1140" y="470" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="330" font-weight="700" fill="#ffffff" fill-opacity=".055" letter-spacing="-12">02</text>
+  <g fill="none" stroke="#e7f1e4" stroke-opacity=".78" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="880" cy="245" r="115" stroke="#317cff" stroke-width="3"/>
+      <path d="M710 245h-75" stroke="#317cff" marker-end="url(#arrow)"/>
+      <path d="M1050 245h75" stroke="#317cff" marker-end="url(#arrow)"/>
+      <path d="M805 160l-35-45m185 260l35 45" stroke="#b8d0c1"/>
+      <path d="M775 310c40 55 130 70 210 20" stroke="#b8d0c1" stroke-dasharray="7 8"/>
+      <circle cx="880" cy="245" r="9" fill="#317cff" stroke="none"/>
+      <path d="M840 200c30-25 70-25 100 0" stroke="#b8d0c1"/></g>
+  <rect x="0" y="300" width="1200" height="220" fill="url(#fade)"/>
+  <rect x="0" y="0" width="8" height="520" fill="#317cff"/>
+</svg>

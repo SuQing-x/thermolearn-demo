@@ -16,3 +16,13 @@ python scripts/media/generate_media.py
 ```
 
 本项目中的短片用于概念演示，不代表已接入完整课程或外部网课。
+
+## 章节封面
+
+`generate_covers.mjs` 生成 13 张章节封面 SVG（ch0–ch12），输出到 `src/static/media/covers/chXX-cover.svg`。封面使用深绿背景、章节色和抽象热力学线稿，不包含中文标题；章节标题与资源类型由 `ResourceCard.vue` 在页面上叠加，避免固定图片裁切导致文字丢失。PDF 与网课资源都按 `chapterId` 自动使用对应章节封面。
+
+```powershell
+node scripts/media/generate_covers.mjs
+```
+
+新增或替换封面时保持 `chXX-cover.svg` 命名；如需单独覆盖某个资源，可在 `src/data/course.ts` 的资源对象上添加可选 `cover` 字段，例如 `cover: '/static/media/covers/custom.svg'`。封面脚本只依赖 Node.js，不需要 Pillow 或 FFmpeg。

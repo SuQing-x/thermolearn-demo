@@ -165,6 +165,8 @@ npm run build
 
 PDF 保存在 `src/static/courseware/`，资源类型为 `pdf`，`src` 使用 `/static/courseware/文件名.pdf`。资源页通过新标签页打开 PDF，手机可能下载或调用外部阅读器。PDF 原件不修改，来源标为用户提供，内容需课程教师复核。
 
+PDF 与网课卡片按 `chapterId` 自动使用 `src/static/media/covers/chXX-cover.svg` 章节封面。封面由 `node scripts/media/generate_covers.mjs` 生成；替换封面时保持文件命名，或在资源对象上添加可选 `cover` 字段单独指定。封面 SVG 不含中文标题，章节名与资源类型由页面叠加显示。
+
 网课使用 `external` 类型及 `url`；已核对分集链接带真实 `p` 序号。`nodeIds` 可为空，表示仅关联章节。运行数据唯一来源仍为 `src/data/course.ts`；`docs/bilibili-directory.json` 是检查用目录快照，不作为前端数据源。修改分集时必须同时核对快照与关联清单，不能猜测章节或分集序号。
 
 ## 检查、构建与交接
@@ -197,10 +199,10 @@ thermolearn-demo/
 ├─ src/components/            图谱、仿真卡片/图表、公式、资源卡片等公共组件
 ├─ src/data/course.ts         章节、知识点、关系、资源、题目
 ├─ src/store.ts               本地学习记录及页面跳转
-├─ src/static/media/          视频与封面
+├─ src/static/media/          视频、视频封面与章节封面
 ├─ src/static/courseware/     第 0–12 章 PDF 课件
 ├─ scripts/check-content.mjs  内容引用检查
-├─ scripts/media/             演示媒体生成说明与脚本
+├─ scripts/media/             演示媒体与章节封面生成说明/脚本
 ├─ 启动演示.cmd               Windows 双击启动
 └─ 启动演示.ps1               PowerShell 启动逻辑
 ```

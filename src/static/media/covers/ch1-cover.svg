@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="基本概念及定义章节封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f35"/>
+      <stop offset="1" stop-color="#0b211b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#5987c5" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#5987c5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081a15" stop-opacity="0"/>
+      <stop offset="1" stop-color="#081a15" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#5987c5"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect width="1200" height="520" fill="url(#grid)"/>
+  <circle cx="900" cy="235" r="340" fill="url(#glow)"/>
+  <text x="1140" y="470" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="330" font-weight="700" fill="#ffffff" fill-opacity=".055" letter-spacing="-12">01</text>
+  <g fill="none" stroke="#e7f1e4" stroke-opacity=".78" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="720" y="150" width="280" height="220" rx="8" stroke="#5987c5" stroke-width="3"/>
+      <path d="M720 225h280" stroke="#b8d0c1" stroke-opacity=".7"/>
+      <path d="M860 225v-85" stroke="#5987c5" stroke-width="6"/>
+      <path d="M815 140h90" stroke="#5987c5" stroke-width="7"/>
+      <path d="M675 115v300M1045 115v300" stroke="#b8d0c1" stroke-opacity=".4" stroke-dasharray="8 10"/>
+      <path d="M700 305h35m240 0h35" stroke="#5987c5" marker-end="url(#arrow)"/>
+      <circle cx="860" cy="225" r="5" fill="#5987c5" stroke="none"/></g>
+  <rect x="0" y="300" width="1200" height="220" fill="url(#fade)"/>
+  <rect x="0" y="0" width="8" height="520" fill="#5987c5"/>
+</svg>

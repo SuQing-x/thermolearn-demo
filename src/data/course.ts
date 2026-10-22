@@ -10,7 +10,7 @@ export interface Relation { source: string; target: string; type: '前置' | '�
 export interface Question { id: string; nodeIds: string[]; chapterId: string; stem: string; options: string[]; answer: number; explanation: string; difficulty: '基础' | '进阶' }
 export type ResourceType = 'video' | 'slides' | 'external' | 'pdf'
 /** external 的 nodeIds 可为空，表示仅关联章节；pdf 的 src 使用 /static/courseware/ 路径。 */
-export interface Resource { id: string; title: string; type: ResourceType; nodeIds: string[]; chapterId: string; duration: string; description: string; color: string; theme: string; src?: string; slides?: { title: string; body: string[]; formula?: string }[]; url?: string; course?: string; source?: string; author?: string; featured?: boolean }
+export interface Resource { id: string; title: string; type: ResourceType; nodeIds: string[]; chapterId: string; duration: string; description: string; color: string; theme: string; cover?: string; src?: string; slides?: { title: string; body: string[]; formula?: string }[]; url?: string; course?: string; source?: string; author?: string; featured?: boolean }
 /** 四类资源在页面上的统一名称、图标与访问方式；各页面按 ResourceType 取用，不再各写一套二选一判断。 */
 export const resourceTypeLabel: Record<ResourceType, string> = { video: '演示短片', slides: '知识课件', external: '网课资源', pdf: '课程 PDF' }
 export const resourceTypeIcon: Record<ResourceType, string> = { video: 'video', slides: 'file', external: 'link', pdf: 'file' }

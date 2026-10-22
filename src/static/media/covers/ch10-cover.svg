@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="蒸汽动力装置章节封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f35"/>
+      <stop offset="1" stop-color="#0b211b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#cf778b" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#cf778b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081a15" stop-opacity="0"/>
+      <stop offset="1" stop-color="#081a15" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#cf778b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect width="1200" height="520" fill="url(#grid)"/>
+  <circle cx="900" cy="235" r="340" fill="url(#glow)"/>
+  <text x="1140" y="470" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="330" font-weight="700" fill="#ffffff" fill-opacity=".055" letter-spacing="-12">10</text>
+  <g fill="none" stroke="#e7f1e4" stroke-opacity=".78" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="945" cy="235" r="82" stroke="#cf778b" stroke-width="3"/>
+      <path d="M945 153v164M863 235h164M887 177l116 116M1003 177L887 293" stroke="#b8d0c1"/>
+      <path d="M700 335h150v65H700z" stroke="#b8d0c1"/>
+      <path d="M720 250h95" stroke="#cf778b" marker-end="url(#arrow)"/>
+      <path d="M1027 250h40c20 0 20 85 0 85h-40" stroke="#b8d0c1" stroke-dasharray="7 8"/>
+      <path d="M760 190c25-35 55-35 80 0" stroke="#cf778b"/></g>
+  <rect x="0" y="300" width="1200" height="220" fill="url(#fade)"/>
+  <rect x="0" y="0" width="8" height="520" fill="#cf778b"/>
+</svg>

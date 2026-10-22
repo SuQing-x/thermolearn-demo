@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="气体与蒸汽的流动章节封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f35"/>
+      <stop offset="1" stop-color="#0b211b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#4b98ae" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#4b98ae" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081a15" stop-opacity="0"/>
+      <stop offset="1" stop-color="#081a15" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#4b98ae"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <rect width="1200" height="520" fill="url(#grid)"/>
+  <circle cx="900" cy="235" r="340" fill="url(#glow)"/>
+  <text x="1140" y="470" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="330" font-weight="700" fill="#ffffff" fill-opacity=".055" letter-spacing="-12">07</text>
+  <g fill="none" stroke="#e7f1e4" stroke-opacity=".78" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M690 145c95 0 115 95 165 95s70-95 165-95" stroke="#4b98ae" stroke-width="3"/>
+      <path d="M690 355c95 0 115-95 165-95s70 95 165 95" stroke="#4b98ae" stroke-width="3"/>
+      <path d="M700 250h370" stroke="#b8d0c1" marker-end="url(#arrow)"/>
+      <path d="M740 215h290M740 285h290" stroke="#b8d0c1" stroke-dasharray="6 8" stroke-opacity=".5"/>
+      <path d="M790 190c40 20 40 40 0 60m210-60c-40 20-40 40 0 60" stroke="#b8d0c1"/></g>
+  <rect x="0" y="300" width="1200" height="220" fill="url(#fade)"/>
+  <rect x="0" y="0" width="8" height="520" fill="#4b98ae"/>
+</svg>
